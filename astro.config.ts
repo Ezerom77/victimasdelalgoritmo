@@ -9,7 +9,8 @@ export default defineConfig({
       ? "https://victimasdelalgoritmo.com.ar/"
       : process.env.VERCEL_URL
         ? `https://${process.env.VERCEL_URL}/`
-        : "https://localhost:3000/",
+        : // : "https://localhost:3000/",
+          "https://victimasdelalgoritmo.com.ar/",
   trailingSlash: "ignore",
   integrations: [sitemap(), UnoCSS({ injectReset: true })],
   vite: {
