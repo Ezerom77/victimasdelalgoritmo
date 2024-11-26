@@ -9,9 +9,9 @@ description: "Individuos influenciados y controlados por decisiones automatizada
 layout: "../../layouts/BlogPost.astro"
 ---
 
-## Tu clic te define.
+## Tu "clic" te define.
 
-Hace poco, una amiga me compartió una canción que, según ella, probablemente me gustaría, ya que tenía un aire muy similar a una banda de rock que ambos escuchamos. Curiosamente, ese mismo día había visto un TikTok con la misma canción. Le comenté sobre el tema, y su respuesta fue: "Sí, yo también lo vi, pero no te lo mencioné para no hacer la explicación más larga". Fue en ese momento cuando me di cuenta de algo: nuestros perfiles nos habían sugerido el mismo artista, probablemente porque compartimos el gusto por esa banda. Y, para ser sincero, me sentí un poco manipulado.
+Hace un tiempo, una amiga me compartió una canción que, según ella, probablemente me gustaría, ya que tenía un aire muy similar a una banda de rock que ambos escuchamos. Curiosamente, ese mismo día había visto un TikTok con la misma canción. Le comenté sobre el tema, y su respuesta fue: "Sí, yo también lo vi, pero no te lo mencioné para no hacer la explicación más larga". Fue en ese momento cuando me di cuenta de algo: nuestros perfiles nos habían sugerido el mismo artista, probablemente porque compartimos el gusto por esa banda. Y, para ser sincero, me sentí un poco manipulado.
 
 No es algo nuevo ni sorprendente, todos somos, en mayor o menor medida, víctimas del algoritmo. Lo que me hizo reflexionar fue cómo podemos ser manipulados de dos maneras: por un lado, recibiendo estímulos que nos empujan hacia ciertos contenidos; por otro, perdiéndonos la oportunidad de conocer artistas, libros, películas o canciones solo porque las redes deciden que no somos el público objetivo.
 
