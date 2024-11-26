@@ -4,6 +4,15 @@ pubDate: 1/12/2024
 author: "Ezerom"
 tags:
   - VdA
+  - youtube
+  - instagram
+  - tiktok
+  - netflix
+  - prime
+  - max
+  - x
+  - disney
+
 imgUrl: "../../assets/blog1.jpeg"
 description: "Individuos influenciados y controlados por decisiones automatizadas y algoritmos que afectan su comportamiento, decisiones y percepciones, sin ser plenamente conscientes de ello."
 layout: "../../layouts/BlogPost.astro"
