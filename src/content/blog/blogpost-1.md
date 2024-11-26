@@ -13,7 +13,7 @@ tags:
   - x
   - disney
   - spotify
-  - blogs
+  - blog
 
 imgUrl: "../../assets/blog1.jpeg"
 description: "Individuos influenciados y controlados por decisiones automatizadas y algoritmos que afectan su comportamiento, decisiones y percepciones, sin ser plenamente conscientes de ello."
