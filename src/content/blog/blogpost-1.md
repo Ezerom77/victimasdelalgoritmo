@@ -4,42 +4,17 @@ pubDate: 1/12/2024
 author: "Ezerom"
 tags:
   - VdA
-imgUrl: "../../assets/astro.jpeg"
+imgUrl: "../../assets/blog1.jpeg"
 description: "Individuos influenciados y controlados por decisiones automatizadas y algoritmos que afectan su comportamiento, decisiones y percepciones, sin ser plenamente conscientes de ello."
 layout: "../../layouts/BlogPost.astro"
 ---
 
-## Deorum petiit ignis
+## Tu clic te define.
 
-Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, _vox
-nocte sedesque_, decimo. Omnia esse, quam sive; conplevit illis indestrictus
-admovit dedit sub quod protectus, impedit non.
+Hace poco, una amiga me compartió una canción que, según ella, probablemente me gustaría, ya que tenía un aire muy similar a una banda de rock que ambos escuchamos. Curiosamente, ese mismo día había visto un TikTok con la misma canción. Le comenté sobre el tema, y su respuesta fue: "Sí, yo también lo vi, pero no te lo mencioné para no hacer la explicación más larga". Fue en ese momento cuando me di cuenta de algo: nuestros perfiles nos habían sugerido el mismo artista, probablemente porque compartimos el gusto por esa banda. Y, para ser sincero, me sentí un poco manipulado.
 
-## Iovis late orbem Perseus sunt
+No es algo nuevo ni sorprendente, todos somos, en mayor o menor medida, víctimas del algoritmo. Lo que me hizo reflexionar fue cómo podemos ser manipulados de dos maneras: por un lado, recibiendo estímulos que nos empujan hacia ciertos contenidos; por otro, perdiéndonos la oportunidad de conocer artistas, libros, películas o canciones solo porque las redes deciden que no somos el público objetivo.
 
-Aras reperire, sui motis correpti coniunx Onetor amore ferire lacertis, petiit.
-Bis pallor et mecum me, igne patruelibus _tendebam_, vultu sterilique terruerat
-_tempore_ medium aera **eadem Mittor**.
+Fue así que nació este blog. Mi objetivo es compartir esas joyas que son virales para algunos, pero invisibles para otros, rompiendo con el mandato de las redes sobre lo que "debemos" consumir.
 
-- Non turba loca dederunt primordia ineamus Dictys
-- Tanti amat mundus sedula
-- Potuissent aetas parili coniuge se lumina breve
-- Tamen ille crepitantibus ulla coeperunt quibus iugulo
-- Pindusque solacia luctataque felix
-
-## Longum minus sic saepe
-
-Genu cupiens quoque: cum dolor: sollicitive cantu, et piae Leuconoe, huius non
-nil tuli Peleusque rauca. Et alvum cuncti Hippodamas meritis nec coniunx ausa,
-pete. Congestaque nisi nullus poena. Tanto cum, curvis vulnera quod optatis,
-trahens conplexa saepe.
-
-Hominum quo. Signa germanaeque iuvat at feruntur precantibus corpus praebuerat
-excipit mixtaeque inferior, haec percepit regum: nec nec sit ferenti.
-
-## Geminas namque quod referitur argenteus aderat superstes
-
-Insistere pugno. Cum morae vigilantibus dulces Cycnus: neque cum sororis.
-
-Hac Aestas solet docebo tandem tamquam omnis vitiantur mitte, vatis in animique
-infelix passimque. Superasset onus.
+Si llegaste hasta acá, probablemente también víctima de algún algoritmo, te doy la bienvenida. Espero que algo de lo que encuentres aquí logre enriquecer tu biblioteca mental.
