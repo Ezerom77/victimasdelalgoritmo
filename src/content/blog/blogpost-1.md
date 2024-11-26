@@ -1,5 +1,5 @@
 ---
-title: VdA
+title: Victimas del algoritmo, parte uno.
 pubDate: 1/12/2024
 author: "Ezerom"
 tags:
