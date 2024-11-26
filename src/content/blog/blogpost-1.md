@@ -1,27 +1,25 @@
 ---
-title: Blogpost 1
-pubDate: 11/09/2022 14:25
-author: "Elian Van Cutsem"
+title: VdA
+pubDate: 1/12/2024
+author: "Ezerom"
 tags:
-  - JavaScript
-  - Astro
-  - UnoCSS
-imgUrl: '../../assets/astro.jpeg'
-description: Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, vox nocte sedesque, decimo. Omnia esse, quam sive; conplevit illis indestrictus admovit dedit sub quod protectus, impedit non.
-layout: '../../layouts/BlogPost.astro'
+  - VdA
+imgUrl: "../../assets/astro.jpeg"
+description: "Individuos influenciados y controlados por decisiones automatizadas y algoritmos que afectan su comportamiento, decisiones y percepciones, sin ser plenamente conscientes de ello."
+layout: "../../layouts/BlogPost.astro"
 ---
 
 ## Deorum petiit ignis
 
-Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, *vox
-nocte sedesque*, decimo. Omnia esse, quam sive; conplevit illis indestrictus
+Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, _vox
+nocte sedesque_, decimo. Omnia esse, quam sive; conplevit illis indestrictus
 admovit dedit sub quod protectus, impedit non.
 
 ## Iovis late orbem Perseus sunt
 
 Aras reperire, sui motis correpti coniunx Onetor amore ferire lacertis, petiit.
-Bis pallor et mecum me, igne patruelibus *tendebam*, vultu sterilique terruerat
-*tempore* medium aera **eadem Mittor**.
+Bis pallor et mecum me, igne patruelibus _tendebam_, vultu sterilique terruerat
+_tempore_ medium aera **eadem Mittor**.
 
 - Non turba loca dederunt primordia ineamus Dictys
 - Tanti amat mundus sedula
