@@ -1,6 +1,6 @@
 ---
 title: Victimas del algoritmo, parte uno.
-pubDate: 1/12/2024
+pubDate: 11/26/2024
 author: "Ezerom"
 tags:
   - VdA
