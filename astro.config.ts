@@ -28,27 +28,4 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"],
     },
   },
-  headers: {
-    // Cache estático para assets
-    "/*.{js,css,jpg,jpeg,png,gif,ico,svg,woff,woff2}": [
-      {
-        key: "Cache-Control",
-        value: "public, max-age=31536000, immutable",
-      },
-    ],
-    // Cache para páginas HTML
-    "/*.html": [
-      {
-        key: "Cache-Control",
-        value: "public, max-age=3600, must-revalidate",
-      },
-    ],
-    // Cache para el feed RSS
-    "/feed.xml": [
-      {
-        key: "Cache-Control",
-        value: "public, max-age=3600, must-revalidate",
-      },
-    ],
-  },
 });
