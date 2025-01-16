@@ -11,8 +11,7 @@ export default defineConfig({
       ? "https://victimasdelalgoritmo.com.ar/"
       : process.env.VERCEL_URL
         ? `https://${process.env.VERCEL_URL}/`
-        : // : "https://localhost:3000/",
-          "https://victimasdelalgoritmo.com.ar/",
+        : "https://victimasdelalgoritmo.com.ar/",
   trailingSlash: "ignore",
   integrations: [
     sitemap(),
@@ -28,5 +27,28 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },
+  },
+  headers: {
+    // Cache estático para assets
+    "/*.{js,css,jpg,jpeg,png,gif,ico,svg,woff,woff2}": [
+      {
+        key: "Cache-Control",
+        value: "public, max-age=31536000, immutable",
+      },
+    ],
+    // Cache para páginas HTML
+    "/*.html": [
+      {
+        key: "Cache-Control",
+        value: "public, max-age=3600, must-revalidate",
+      },
+    ],
+    // Cache para el feed RSS
+    "/feed.xml": [
+      {
+        key: "Cache-Control",
+        value: "public, max-age=3600, must-revalidate",
+      },
+    ],
   },
 });

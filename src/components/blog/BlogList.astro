@@ -7,11 +7,18 @@ interface Props {
 }
 
 const { posts } = Astro.props;
+
+// Ordenar posts por fecha, del más reciente al más antiguo
+const sortedPosts = [...posts].sort((a, b) => {
+  const dateA = a.data.pubDate instanceof Date ? a.data.pubDate : new Date(0);
+  const dateB = b.data.pubDate instanceof Date ? b.data.pubDate : new Date(0);
+  return dateB.getTime() - dateA.getTime();
+});
 ---
 
 <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
   {
-    posts.map((post) => {
+    sortedPosts.map((post) => {
       return (
         <li>
           <BlogSummaryCard post={post} />
