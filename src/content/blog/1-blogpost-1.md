@@ -1,7 +1,7 @@
 ---
-title: Victimas del algoritmo, parte uno.
-pubDate: 11/26/2024 00:00
-author: "Ezerom"
+title: "Victimas del algoritmo, parte uno."
+pubDate: "2024-11-26 00:00"
+author: "VdA"
 tags:
   - VdA
   - youtube
@@ -14,7 +14,6 @@ tags:
   - disney
   - spotify
   - blog
-
 imgUrl: "../../assets/blog1.jpeg"
 description: "Individuos influenciados y controlados por decisiones automatizadas y algoritmos que afectan su comportamiento, decisiones y percepciones, sin ser plenamente conscientes de ello."
 layout: "../../layouts/BlogPost.astro"

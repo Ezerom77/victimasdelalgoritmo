@@ -1,7 +1,7 @@
 ---
 title: Algoritmo de mar y tierra
 description: Lulideloscruceros nos invita a romantizar lo cotidiano y encontrar lo extraordinario en cada detalle.
-pubDate: 12/04/2024 18:30
+pubDate: "2024-12-04 18:30"
 author: Ezerom
 tags:
   - Youtube

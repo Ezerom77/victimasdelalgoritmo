@@ -1,6 +1,6 @@
 ---
 title: Soygambo
-pubDate: 11/28/2024 19:05
+pubDate: "2024-11-28 19:05"
 author: "Ezerom"
 tags:
   - tiktok

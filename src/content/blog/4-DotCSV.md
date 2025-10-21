@@ -1,11 +1,12 @@
 ---
-title: Dot CSV, El Intérprete Necesario en la Era de las Víctimas del Algoritmo
-description: Carlos Santana Vega, Dot CSV, es el intérprete clave que descifra la revolución de la Inteligencia Artificial y el Machine Learning para la audiencia hispana. Exploramos cómo su rigor expone los sesgos algorítmicos y la crisis de la desinformación, transformando al espectador en un ciudadano empoderado, no en una "víctima del algoritmo".
-pubDate: 21/10/2025 15:00
-author: Ezerom
+title: "Dot CSV: El Intérprete Necesario en la Era de las Víctimas del Algoritmo"
+description: "Carlos Santana Vega, Dot CSV, es el intérprete clave que descifra la revolución de la Inteligencia Artificial y el Machine Learning para la audiencia hispana. Exploramos cómo su rigor expone los sesgos algorítmicos y la crisis de la desinformación, transformando al espectador en un ciudadano empoderado, no en una víctima del algoritmo."
+pubDate: "2025-10-21 15:00"
+author: "VdA"
 tags:
+  - IA
   - Youtube
-  - x
+  - Ciencia
 imgUrl: "../../assets/csv.jpg"
 layout: ../../layouts/BlogPost.astro
 ---
