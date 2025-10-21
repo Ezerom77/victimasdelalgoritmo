@@ -4,9 +4,9 @@ description: Carlos Santana Vega, Dot CSV, es el intérprete clave que descifra 
 pubDate: 2025-10-21 13:50
 author: VdA
 tags: 
-  - IA
-  - Youtube
-  - Ciencia
+  - IA
+  - Youtube
+  - Ciencia
 imgUrl: '../../assets/csv.jpg'
 layout: ../../layouts/BlogPost.astro
 ---
