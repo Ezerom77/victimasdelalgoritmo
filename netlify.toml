@@ -5,6 +5,10 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+  external_node_modules = ["@netlify/blobs"]
+
+[build.environment]
+  NODE_VERSION = "18"
 
 [[headers]]
   for = "/data/views.json"
