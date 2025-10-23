@@ -17,8 +17,8 @@ export async function handler(event) {
   }
 
   try {
-    const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID || process.env.BLOBS_SITE_ID;
-    const token = process.env.NETLIFY_BLOBS_TOKEN || process.env.BLOBS_TOKEN || process.env.NETLIFY_AUTH_TOKEN;
+    const siteID = process.env.NETLIFY_SITE_ID;
+    const token = process.env.NETLIFY_AUTH_TOKEN;
     const hasSiteID = Boolean(siteID);
     const hasToken = Boolean(token);
     const siteIdFormatValid = typeof siteID === 'string' && /^[a-f0-9]{32}$/i.test(siteID);
