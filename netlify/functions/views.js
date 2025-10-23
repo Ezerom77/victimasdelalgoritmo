@@ -17,7 +17,11 @@ export async function handler(event) {
   }
 
   try {
-    const store = getStore('view-counters');
+    const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID || process.env.BLOBS_SITE_ID;
+    const token = process.env.NETLIFY_AUTH_TOKEN || process.env.NETLIFY_BLOBS_TOKEN || process.env.BLOBS_TOKEN;
+    const store = siteID && token
+      ? getStore('view-counters', { siteID, token })
+      : getStore('view-counters');
 
     if (event.httpMethod === 'GET') {
       const { slug } = event.queryStringParameters || {};

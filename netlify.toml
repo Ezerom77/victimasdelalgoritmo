@@ -12,8 +12,10 @@
     Cache-Control = "no-cache, no-store, must-revalidate"
 
 [context.production.environment]
-  NETLIFY_OTEL_PLUGIN_DISABLED = "true"
-  NETLIFY_BLOBS_CONTEXT = "production"
+NETLIFY_OTEL_PLUGIN_DISABLED = "true"
+NETLIFY_BLOBS_CONTEXT = "production"
+NETLIFY_SITE_ID = "<TU_SITE_API_ID>"
+NETLIFY_AUTH_TOKEN = "<SET_IN_DASHBOARD>"
 
 [context.deploy-preview.environment]
   NETLIFY_BLOBS_CONTEXT = "deploy-preview"
