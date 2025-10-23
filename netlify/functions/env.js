@@ -1,4 +1,4 @@
-export async function handler(event) {
+exports.handler = async (event) => {
   const env = process.env;
   const siteID = env.NETLIFY_SITE_ID || env.SITE_ID || env.BLOBS_SITE_ID;
   const token = env.NETLIFY_BLOBS_TOKEN || env.BLOBS_TOKEN || env.NETLIFY_AUTH_TOKEN;
@@ -8,7 +8,7 @@ export async function handler(event) {
 
   const result = {
     hasSiteID: Boolean(siteID),
-    siteIdFormatValid: typeof siteID === 'string' && (/^[a-f0-9]{32}$/i.test(siteID) || /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(siteID));
+    siteIdFormatValid: typeof siteID === 'string' && (/^[a-f0-9]{32}$/i.test(siteID) || /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(siteID)),
     hasToken: Boolean(token),
     tokenLen: token ? token.length : 0,
     hasDeployID: Boolean(deployID),
@@ -29,4 +29,4 @@ export async function handler(event) {
     },
     body: JSON.stringify(result),
   };
-}
+};
