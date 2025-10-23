@@ -8,7 +8,7 @@ export async function handler(event) {
 
   const result = {
     hasSiteID: Boolean(siteID),
-    siteIdFormatValid: /^[a-f0-9]{32}$/i.test(siteID || ""),
+    siteIdFormatValid: typeof siteID === 'string' && (/^[a-f0-9]{32}$/i.test(siteID) || /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(siteID));
     hasToken: Boolean(token),
     tokenLen: token ? token.length : 0,
     hasDeployID: Boolean(deployID),

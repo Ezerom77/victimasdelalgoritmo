@@ -23,7 +23,7 @@ export async function handler(event) {
     const hasSiteID = Boolean(siteID);
     const hasToken = Boolean(token);
     const hasDeployID = Boolean(deployID);
-    const siteIdFormatValid = typeof siteID === 'string' && /^[a-f0-9]{32}$/i.test(siteID);
+    const siteIdFormatValid = typeof siteID === 'string' && (/^[a-f0-9]{32}$/i.test(siteID) || /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(siteID));
     const tokenLen = typeof token === 'string' ? token.length : 0;
 
     console.log('views: blobs pre-config', {
