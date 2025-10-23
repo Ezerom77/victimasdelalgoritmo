@@ -38,6 +38,7 @@ export async function handler(event) {
 
     let store;
     let storeMethod = 'site-manual';
+    let useFallback = false;
 
     const FALLBACK_FILE = path.join(process.cwd(), 'public', 'data', 'views.json');
 
@@ -69,7 +70,9 @@ export async function handler(event) {
             store = getDeployStore('view-counters', { siteID, token, deployID });
             storeMethod = 'deploy-manual';
           } else {
-            throw err;
+            // Instead of throwing, fallback to file
+            useFallback = true
+            storeMethod = 'fallback-file'
           }
         }
       }
