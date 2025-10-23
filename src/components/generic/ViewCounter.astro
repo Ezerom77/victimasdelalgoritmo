@@ -1,0 +1,73 @@
+---
+export interface Props {
+  postSlug: string;
+  title: string;
+}
+
+const { postSlug, title } = Astro.props;
+---
+
+<div class="flex items-center gap-2 text-sm text-gray-600">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+  </svg>
+  <span id={`view-count-${postSlug}`}>...</span>
+  <span>lecturas</span>
+</div>
+
+<script define:vars={{ postSlug, title }}>
+  async function loadViewCount() {
+    try {
+      // Load view data from static JSON file
+      const response = await fetch('/data/views.json');
+      const viewsData = await response.json();
+      
+      const countElement = document.getElementById(`view-count-${postSlug}`);
+      if (!countElement) return;
+      
+      // Get current count for this post
+      const postData = viewsData[postSlug];
+      const currentViews = postData ? postData.views : 0;
+      
+      // Check if this user has already viewed this post (using localStorage for persistence)
+      const viewKey = `vda-viewed-${postSlug}`;
+      const hasViewed = localStorage.getItem(viewKey);
+      
+      if (!hasViewed) {
+        // First time viewing - increment counter locally
+        const newViews = currentViews + 1;
+        countElement.textContent = newViews;
+        
+        // Add animation
+        countElement.style.transform = 'scale(1.1)';
+        countElement.style.color = '#10b981';
+        countElement.style.transition = 'all 0.3s ease';
+        
+        setTimeout(() => {
+          countElement.style.transform = 'scale(1)';
+          countElement.style.color = '';
+        }, 300);
+        
+        // Mark as viewed
+        localStorage.setItem(viewKey, 'true');
+        
+        // Store the incremented count locally for this user
+        localStorage.setItem(`vda-count-${postSlug}`, newViews.toString());
+      } else {
+        // User has viewed before - show their local count or original count
+        const localCount = localStorage.getItem(`vda-count-${postSlug}`);
+        countElement.textContent = localCount || currentViews;
+      }
+    } catch (error) {
+      console.error('Error loading view count:', error);
+      const countElement = document.getElementById(`view-count-${postSlug}`);
+      if (countElement) {
+        countElement.textContent = '0';
+      }
+    }
+  }
+  
+  // Load view count when page loads
+  loadViewCount();
+</script>

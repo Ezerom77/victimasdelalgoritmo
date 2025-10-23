@@ -1,10 +1,13 @@
 ---
 import ShareButtons from "../generic/ShareButtons.astro";
+import ViewCounter from "../generic/ViewCounter.astro";
+
 interface Props {
   content: any;
+  slug?: string;
 }
 
-const { content } = Astro.props;
+const { content, slug } = Astro.props;
 ---
 
 <article class="prose-slate w-sm md:w-prose md:prose poppins">
@@ -12,6 +15,7 @@ const { content } = Astro.props;
   <p class="text-slate text-sm md:text-base">
     Publicado el {content.pubDate} por {content.author}
   </p>
+  {slug && <ViewCounter postSlug={slug} title={content.title} />}
   <ShareButtons title={content.title} description={content.description} />
   <slot />
   <p class="text-slate">Escrito por {content.author}</p>
