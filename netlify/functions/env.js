@@ -1,7 +1,7 @@
 exports.handler = async (event) => {
   const env = process.env;
   const siteID = env.NETLIFY_SITE_ID || env.SITE_ID || env.BLOBS_SITE_ID;
-  const token = env.NETLIFY_BLOBS_TOKEN || env.BLOBS_TOKEN || env.NETLIFY_AUTH_TOKEN;
+  const token = env.NETLIFY_BLOBS_TOKEN || env.BLOBS_TOKEN || env.NETLIFY_AUTH_TOKEN || env.NETLIFY_API_TOKEN || env.NETLIFY_PERSONAL_ACCESS_TOKEN;
   const deployID = env.DEPLOY_ID || env.NETLIFY_DEPLOY_ID || env.DEPLOY_ID;
   const blobsContext = env.NETLIFY_BLOBS_CONTEXT || env.CONTEXT || env.NODE_ENV;
   const nodeVersion = process.version;

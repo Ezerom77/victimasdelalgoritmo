@@ -16,7 +16,7 @@ export async function handler(event) {
 
   try {
     const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID || process.env.BLOBS_SITE_ID;
-    const token = process.env.NETLIFY_BLOBS_TOKEN || process.env.BLOBS_TOKEN || process.env.NETLIFY_AUTH_TOKEN;
+    const token = process.env.NETLIFY_BLOBS_TOKEN || process.env.BLOBS_TOKEN || process.env.NETLIFY_AUTH_TOKEN || process.env.NETLIFY_API_TOKEN || process.env.NETLIFY_PERSONAL_ACCESS_TOKEN;
     const deployID = process.env.DEPLOY_ID;
     const blobsContext = process.env.NETLIFY_BLOBS_CONTEXT || process.env.CONTEXT;
 
