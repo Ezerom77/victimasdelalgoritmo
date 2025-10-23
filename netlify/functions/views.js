@@ -18,7 +18,12 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const store = getStore('view-counters');
+    // Configure Netlify Blobs with environment variables if provided
+    const blobsOptions = (process.env.BLOBS_SITE_ID && process.env.BLOBS_TOKEN)
+      ? { siteID: process.env.BLOBS_SITE_ID, token: process.env.BLOBS_TOKEN }
+      : undefined;
+
+    const store = getStore('view-counters', blobsOptions);
     
     if (event.httpMethod === 'GET') {
       const { slug } = event.queryStringParameters || {};
