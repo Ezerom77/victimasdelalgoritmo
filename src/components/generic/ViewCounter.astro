@@ -19,51 +19,66 @@ const { postSlug, title } = Astro.props;
 <script define:vars={{ postSlug, title }}>
   async function loadViewCount() {
     try {
-      // Load view data from static JSON file
-      const response = await fetch('/data/views.json');
-      const viewsData = await response.json();
-      
       const countElement = document.getElementById(`view-count-${postSlug}`);
       if (!countElement) return;
       
-      // Get current count for this post
-      const postData = viewsData[postSlug];
-      const currentViews = postData ? postData.views : 0;
-      
-      // Check if this user has already viewed this post (using localStorage for persistence)
+      // Check if this user has already viewed this post (using sessionStorage for per-session tracking)
       const viewKey = `vda-viewed-${postSlug}`;
-      const hasViewed = localStorage.getItem(viewKey);
+      const hasViewed = sessionStorage.getItem(viewKey);
       
       if (!hasViewed) {
-        // First time viewing - increment counter locally
-        const newViews = currentViews + 1;
-        countElement.textContent = newViews;
+        // First time viewing in this session - increment counter on server
+        const incrementResponse = await fetch('/.netlify/functions/views', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ slug: postSlug }),
+        });
         
-        // Add animation
-        countElement.style.transform = 'scale(1.1)';
-        countElement.style.color = '#10b981';
-        countElement.style.transition = 'all 0.3s ease';
-        
-        setTimeout(() => {
-          countElement.style.transform = 'scale(1)';
-          countElement.style.color = '';
-        }, 300);
-        
-        // Mark as viewed
-        localStorage.setItem(viewKey, 'true');
-        
-        // Store the incremented count locally for this user
-        localStorage.setItem(`vda-count-${postSlug}`, newViews.toString());
+        if (incrementResponse.ok) {
+          const data = await incrementResponse.json();
+          countElement.textContent = data.views;
+          
+          // Add animation
+          countElement.style.transform = 'scale(1.1)';
+          countElement.style.color = '#10b981';
+          countElement.style.transition = 'all 0.3s ease';
+          
+          setTimeout(() => {
+            countElement.style.transform = 'scale(1)';
+            countElement.style.color = '';
+          }, 300);
+          
+          // Mark as viewed in this session
+          sessionStorage.setItem(viewKey, 'true');
+        } else {
+          throw new Error('Failed to increment view count');
+        }
       } else {
-        // User has viewed before - show their local count or original count
-        const localCount = localStorage.getItem(`vda-count-${postSlug}`);
-        countElement.textContent = localCount || currentViews;
+        // User has viewed before in this session - just get current count
+        const getResponse = await fetch(`/.netlify/functions/views?slug=${postSlug}`);
+        
+        if (getResponse.ok) {
+          const data = await getResponse.json();
+          countElement.textContent = data.views;
+        } else {
+          throw new Error('Failed to get view count');
+        }
       }
     } catch (error) {
       console.error('Error loading view count:', error);
       const countElement = document.getElementById(`view-count-${postSlug}`);
       if (countElement) {
-        countElement.textContent = '0';
+        // Fallback to static JSON file if API fails
+        try {
+          const response = await fetch('/data/views.json');
+          const viewsData = await response.json();
+          const postData = viewsData[postSlug];
+          countElement.textContent = postData ? postData.views : '0';
+        } catch (fallbackError) {
+          countElement.textContent = '0';
+        }
       }
     }
   }

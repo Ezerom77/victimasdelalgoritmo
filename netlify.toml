@@ -1,0 +1,21 @@
+[build]
+  publish = "dist"
+  command = "pnpm install && pnpm build"
+
+[functions]
+  directory = "netlify/functions"
+
+[[headers]]
+  for = "/data/views.json"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Environment variables for Netlify Blobs
+[context.production.environment]
+  NETLIFY_BLOBS_CONTEXT = "production"
+
+[context.deploy-preview.environment]
+  NETLIFY_BLOBS_CONTEXT = "deploy-preview"
+
+[context.branch-deploy.environment]
+  NETLIFY_BLOBS_CONTEXT = "branch-deploy"
