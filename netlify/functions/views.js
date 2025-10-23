@@ -19,7 +19,10 @@ export async function handler(event) {
   try {
     const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID || process.env.BLOBS_SITE_ID;
     const token = process.env.NETLIFY_AUTH_TOKEN || process.env.NETLIFY_BLOBS_TOKEN || process.env.BLOBS_TOKEN;
-    const store = siteID && token
+    const hasSiteID = Boolean(siteID);
+    const hasToken = Boolean(token);
+    console.log('views: blobs config', { hasSiteID, hasToken, context: process.env.CONTEXT });
+    const store = hasSiteID && hasToken
       ? getStore('view-counters', { siteID, token })
       : getStore('view-counters');
 
