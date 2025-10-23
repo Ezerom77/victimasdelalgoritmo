@@ -1,4 +1,6 @@
 import { getStore, getDeployStore } from '@netlify/blobs';
+import fs from 'fs';
+import path from 'path';
 
 export async function handler(event) {
   const headers = {
@@ -37,6 +39,21 @@ export async function handler(event) {
     let store;
     let storeMethod = 'site-manual';
 
+    const FALLBACK_FILE = path.join(process.cwd(), 'public', 'data', 'views.json');
+
+    function readViewsFromFile(slug) {
+      try {
+        const raw = fs.readFileSync(FALLBACK_FILE, 'utf-8');
+        const json = JSON.parse(raw);
+        const entry = json?.[slug];
+        const views = entry && typeof entry.views === 'number' ? entry.views : 0;
+        return views;
+      } catch (e) {
+        console.error('views: fallback read error', { message: e?.message });
+        return 0;
+      }
+    }
+
     if (hasSiteID && hasToken) {
       try {
         store = getStore('view-counters', { siteID, token });
@@ -58,7 +75,32 @@ export async function handler(event) {
       }
     } else {
       console.error('views: missing credentials for Blobs', { hasSiteID, hasToken, hasDeployID });
-      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Missing Netlify credentials (siteID/token)' }) };
+      const storeMethod = 'fallback-file';
+      console.log('views: using fallback file', { file: FALLBACK_FILE, storeMethod });
+
+      if (event.httpMethod === 'GET') {
+        const { slug } = event.queryStringParameters || {};
+        if (!slug) {
+          return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing slug parameter' }) };
+        }
+        const views = readViewsFromFile(slug);
+        return { statusCode: 200, headers, body: JSON.stringify({ slug, views, lastUpdated: new Date().toISOString(), storeMethod }) };
+      }
+
+      if (event.httpMethod === 'POST') {
+        const body = event.body ? JSON.parse(event.body) : {};
+        const slug = body && body.slug;
+        const isInit = typeof body.initViews === 'number';
+        if (!slug) {
+          return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing slug in request body' }) };
+        }
+        const currentViews = readViewsFromFile(slug);
+        const nextViews = isInit ? Math.max(0, Math.floor(body.initViews)) : currentViews + 1;
+        // No persistence in fallback
+        return { statusCode: 200, headers, body: JSON.stringify({ slug, views: nextViews, lastUpdated: new Date().toISOString(), storeMethod }) };
+      }
+
+      return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed', storeMethod }) };
     }
 
     console.log('views: blobs config', {
