@@ -1,4 +1,5 @@
 ---
+import ShareButtons from "../generic/ShareButtons.astro";
 interface Props {
   content: any;
 }
@@ -11,6 +12,7 @@ const { content } = Astro.props;
   <p class="text-slate text-sm md:text-base">
     Publicado el {content.pubDate} por {content.author}
   </p>
+  <ShareButtons title={content.title} description={content.description} />
   <slot />
   <p class="text-slate">Escrito por {content.author}</p>
   <a href="/blog/" title="Back to blog">&larr; Volver al blog</a>

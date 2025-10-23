@@ -1,0 +1,69 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const shareUrl = canonicalURL.toString();
+const text = description ?? title;
+---
+
+<section class="mt-6">
+  <h2 class="hidden">Compartir esta nota</h2>
+  <div class="flex items-center gap-4 flex-wrap">
+    <a
+      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(title)}`}
+      target="_blank"
+      rel="noopener"
+      title="Compartir en X"
+      class="flex items-center gap-2 px-3 py-2 border-2 border-black bg-white hover:bg-green transition-colors duration-150 ease-in-out"
+    >
+      <div class:list={["i-uil-twitter", "w-5", "h-5"]} />
+      <span class="hidden sm:inline sanchez">X</span>
+    </a>
+
+    <a
+      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+      target="_blank"
+      rel="noopener"
+      title="Compartir en Facebook"
+      class="flex items-center gap-2 px-3 py-2 border-2 border-black bg-white hover:bg-blue transition-colors duration-150 ease-in-out"
+    >
+      <div class:list={["i-uil-facebook", "w-5", "h-5"]} />
+      <span class="hidden sm:inline sanchez">Facebook</span>
+    </a>
+
+    <a
+      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+      target="_blank"
+      rel="noopener"
+      title="Compartir en LinkedIn"
+      class="flex items-center gap-2 px-3 py-2 border-2 border-black bg-white hover:bg-cyan transition-colors duration-150 ease-in-out"
+    >
+      <div class:list={["i-uil-linkedin", "w-5", "h-5"]} />
+      <span class="hidden sm:inline sanchez">LinkedIn</span>
+    </a>
+
+    <a
+      href={`https://wa.me/?text=${encodeURIComponent(title + " " + shareUrl)}`}
+      target="_blank"
+      rel="noopener"
+      title="Compartir en WhatsApp"
+      class="flex items-center gap-2 px-3 py-2 border-2 border-black bg-white hover:bg-lime transition-colors duration-150 ease-in-out"
+    >
+      <div class:list={["i-uil-whatsapp", "w-5", "h-5"]} />
+      <span class="hidden sm:inline sanchez">WhatsApp</span>
+    </a>
+
+    <a
+      href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(text + "\n\n" + shareUrl)}`}
+      title="Compartir por Email"
+      class="flex items-center gap-2 px-3 py-2 border-2 border-black bg-white hover:bg-yellow transition-colors duration-150 ease-in-out"
+    >
+      <div class:list={["i-uil-envelope", "w-5", "h-5"]} />
+      <span class="hidden sm:inline sanchez">Email</span>
+    </a>
+  </div>
+</section>
