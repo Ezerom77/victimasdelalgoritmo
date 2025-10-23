@@ -78,9 +78,12 @@ export async function handler(event) {
       }
     } else {
       console.error('views: missing credentials for Blobs', { hasSiteID, hasToken, hasDeployID });
-      const storeMethod = 'fallback-file';
+      storeMethod = 'fallback-file';
       console.log('views: using fallback file', { file: FALLBACK_FILE, storeMethod });
+    }
 
+    // Unified fallback when store unavailable or marked as fallback
+    if (!store || storeMethod === 'fallback-file' || useFallback) {
       if (event.httpMethod === 'GET') {
         const { slug } = event.queryStringParameters || {};
         if (!slug) {
@@ -99,7 +102,6 @@ export async function handler(event) {
         }
         const currentViews = readViewsFromFile(slug);
         const nextViews = isInit ? Math.max(0, Math.floor(body.initViews)) : currentViews + 1;
-        // No persistence in fallback
         return { statusCode: 200, headers, body: JSON.stringify({ slug, views: nextViews, lastUpdated: new Date().toISOString(), storeMethod }) };
       }
 
