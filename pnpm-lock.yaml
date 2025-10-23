@@ -26,6 +26,9 @@ dependencies:
   '@netlify/blobs':
     specifier: ^10.2.1
     version: 10.2.1
+  '@netlify/otel':
+    specifier: ^4.3.1
+    version: 4.3.1
   '@unocss/astro':
     specifier: ^0.57.7
     version: 0.57.7(vite@5.4.21)
