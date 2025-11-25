@@ -67,9 +67,7 @@ const { postSlug, title } = Astro.props;
         }
       }
     } catch (error) {
-      if (import.meta.env.DEV) {
-        console.error('[ViewCounter] Error loading view count:', error);
-      }
+      // Silently fail - don't log errors in production
       const countElement = document.getElementById(`view-count-${postSlug}`);
       if (countElement) {
         // Fallback to static JSON file if API fails
@@ -79,9 +77,7 @@ const { postSlug, title } = Astro.props;
           const postData = viewsData[postSlug];
           countElement.textContent = postData ? postData.views : '0';
         } catch (fallbackError) {
-          if (import.meta.env.DEV) {
-            console.error('[ViewCounter] Fallback also failed:', fallbackError);
-          }
+          // Silently fail and show 0
           countElement.textContent = '0';
         }
       }
