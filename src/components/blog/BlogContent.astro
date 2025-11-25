@@ -13,7 +13,11 @@ const { content, slug } = Astro.props;
 <article class="prose-slate w-sm md:w-prose md:prose poppins">
   <a href="/blog/" title="Back to blog">&larr; Volver al blog</a>
   <p class="text-slate text-sm md:text-base">
-    Publicado el {content.pubDate} por {content.author}
+    Publicado el {new Date(content.pubDate).toLocaleDateString('es-AR', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    })} por {content.author}
   </p>
   {slug && <ViewCounter postSlug={slug} title={content.title} />}
   <ShareButtons title={content.title} description={content.description} />

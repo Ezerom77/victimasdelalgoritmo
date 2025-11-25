@@ -67,7 +67,9 @@ const { postSlug, title } = Astro.props;
         }
       }
     } catch (error) {
-      console.error('Error loading view count:', error);
+      if (import.meta.env.DEV) {
+        console.error('[ViewCounter] Error loading view count:', error);
+      }
       const countElement = document.getElementById(`view-count-${postSlug}`);
       if (countElement) {
         // Fallback to static JSON file if API fails
@@ -77,6 +79,9 @@ const { postSlug, title } = Astro.props;
           const postData = viewsData[postSlug];
           countElement.textContent = postData ? postData.views : '0';
         } catch (fallbackError) {
+          if (import.meta.env.DEV) {
+            console.error('[ViewCounter] Fallback also failed:', fallbackError);
+          }
           countElement.textContent = '0';
         }
       }
