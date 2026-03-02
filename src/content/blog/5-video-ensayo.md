@@ -45,6 +45,6 @@ Figuras como Mariano, Nico y Jordi nos devuelven el control. Al enseñarnos a mi
 
 ### 📌 Referencias de Resistencia
 
-- **Mariano Rodríguez** | [YouTube](https://www.youtube.com/@marianorodriguezcine) • [Instagram](https://www.instagram.com/marianorodriguezok)
-- **Zepfilms (Nicolás Amelio Ortiz)** | [YouTube](https://www.youtube.com/@zepfilms) • [Instagram](https://www.instagram.com/nicoamelioortiz)
-- **Jordi Maquiavello** | [YouTube](https://www.youtube.com/@JordiMaquiavello) • [Instagram](https://www.instagram.com/jordimaquiavello)
+- **Mariano Rodríguez** | [YouTube](https://www.youtube.com/@marianorodriguez) • [Instagram](https://www.instagram.com/marianorodriguezpelis)
+- **Zepfilms (Nicolás Amelio Ortiz)** | [YouTube](https://www.youtube.com/@zepfilms) • [Instagram](https://www.instagram.com/zepfilms)
+- **Jordi Maquiavello** | [YouTube](https://www.youtube.com/@JordiMaquiavello) • [Instagram](https://www.instagram.com/jmaquiavello)
