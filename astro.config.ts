@@ -7,7 +7,9 @@ import netlify from "@astrojs/netlify";
 
 export default defineConfig({
   output: "hybrid",
-  adapter: netlify(),
+  adapter: netlify({
+    imageCDN: false,
+  }),
   // used to generate images
   site:
     process.env.VERCEL_ENV === "production"
