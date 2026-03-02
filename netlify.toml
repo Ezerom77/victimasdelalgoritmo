@@ -5,18 +5,3 @@
 
 [build.environment]
   NODE_VERSION = "22"
-
-[[headers]]
-  for = "/data/views.json"
-  [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
-
-[context.production.environment]
-  NETLIFY_OTEL_PLUGIN_DISABLED = "true"
-  NETLIFY_BLOBS_CONTEXT = "production"
-
-[context.deploy-preview.environment]
-  NETLIFY_BLOBS_CONTEXT = "deploy-preview"
-
-[context.branch-deploy.environment]
-  NETLIFY_BLOBS_CONTEXT = "branch-deploy"
