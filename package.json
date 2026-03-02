@@ -18,11 +18,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/mdx": "^4.3.13",
     "@astrojs/netlify": "^6.6.4",
-    "@astrojs/partytown": "^2.1.2",
-    "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
     "@eliancodes/brutal-ui": "^0.2.3",
     "@netlify/blobs": "^10.2.1",
     "@netlify/otel": "^4.3.1",
