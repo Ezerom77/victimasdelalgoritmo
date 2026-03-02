@@ -1,6 +1,6 @@
 ---
 import LocalFont from "../generic/LocalFont.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -11,7 +11,7 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 if (Astro.props.ogImage === undefined) {
-  Astro.props.ogImage = new URL("/v1/generate/og/default.png", Astro.url);
+  Astro.props.ogImage = new URL("/v1/generate/og/default.png", Astro.site);
 }
 
 const { title, description, ogImage } = Astro.props;
@@ -63,7 +63,7 @@ const { title, description, ogImage } = Astro.props;
 
   <title>VdA | {title}</title>
 
-  <ViewTransitions />
+  <ClientRouter />
 
   <slot />
 </head>
