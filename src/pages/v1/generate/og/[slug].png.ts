@@ -1,6 +1,6 @@
 import { Resvg, type ResvgRenderOptions } from "@resvg/resvg-js";
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import satori from "satori";
 import { html as toReactElement } from "satori-html";
 
@@ -17,7 +17,7 @@ const width = 1200;
 const posts = await getCollection("blog");
 
 export function getStaticPaths() {
-  return posts.map((post) => ({
+  return posts.map((post: CollectionEntry<"blog">) => ({
     params: { slug: post.slug },
     props: { title: post.data.title, description: post.data.description },
   }));
