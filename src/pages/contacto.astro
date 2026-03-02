@@ -1,0 +1,192 @@
+---
+import Layout from "@layouts/Default.astro";
+import { Card } from "@eliancodes/brutal-ui";
+import { Button } from "@eliancodes/brutal-ui";
+---
+
+<Layout
+  title="Contacto"
+  pageTitle="Victimas del Algoritmo | Contacto"
+  description="Envia tu hallazgo"
+>
+  <main class="bg-pink p-6 min-h-screen flex justify-center items-center">
+    <section id="contact" class="flex flex-col gap-8 mt-4 max-w-4xl w-full">
+      <Card>
+        <div id="form-container">
+          <h2 class="text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif">
+            ¿Encontraste una falla en la Matrix?
+          </h2>
+          <p class="poppins mb-8 text-lg">
+            El algoritmo nos encierra en burbujas, pero vos lograste romper el
+            cerco. Buscamos joyas ocultas: ese músico, divulgador o artista que
+            el feed ignora. Convertite en curador humano.
+          </p>
+
+          <form id="contact-form" class="flex flex-col gap-6 poppins">
+            <div class="flex flex-col gap-2">
+              <label for="nombre_alias" class="font-bold text-lg"
+                >Nombre / Alias</label
+              >
+              <input
+                type="text"
+                id="nombre_alias"
+                name="nombre_alias"
+                required
+                class="border-2 border-black p-3 rounded-none focus:outline-none focus:ring-4 focus:ring-black transition-all"
+                placeholder="Neo"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="email" class="font-bold text-lg">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="border-2 border-black p-3 rounded-none focus:outline-none focus:ring-4 focus:ring-black transition-all"
+                placeholder="neo@matrix.com"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="link_hallazgo" class="font-bold text-lg"
+                >Link del Hallazgo</label
+              >
+              <input
+                type="url"
+                id="link_hallazgo"
+                name="link_hallazgo"
+                required
+                class="border-2 border-black p-3 rounded-none focus:outline-none focus:ring-4 focus:ring-black transition-all"
+                placeholder="https://..."
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="manifiesto_razon" class="font-bold text-lg"
+                >Manifiesto</label
+              >
+              <p class="text-sm text-gray-600 mb-1">
+                ¿Por qué esta obra rompe el algoritmo?
+              </p>
+              <textarea
+                id="manifiesto_razon"
+                name="manifiesto_razon"
+                rows="4"
+                required
+                class="border-2 border-black p-3 rounded-none focus:outline-none focus:ring-4 focus:ring-black transition-all"
+                placeholder="Porque..."></textarea>
+            </div>
+
+            <div class="mt-4">
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full md:w-auto bg-white border-2 border-black px-6 py-3 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 ease-in-out text-lg hover:bg-green"
+              >
+                Enviar Hallazgo
+              </button>
+            </div>
+
+            <p id="error-message" class="text-red-600 font-bold hidden"></p>
+          </form>
+        </div>
+
+        <div id="success-message" class="hidden flex-col gap-6 animate-fade-in">
+          <h2
+            class="text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif text-green-700"
+          >
+            📩 Recibido. Tu hallazgo ha sido archivado.
+          </h2>
+          <div
+            class="poppins text-lg space-y-4 border-l-4 border-black pl-6 py-2"
+          >
+            <p>
+              Gracias por tomarte el tiempo de hackear tu propia burbuja. Tu
+              recomendación ya está en nuestra mesa de edición. Si tu "víctima
+              del algoritmo" tiene la chispa humana que buscamos, pronto verás
+              una nota analizando su impacto aquí en el sitio.
+            </p>
+            <p class="font-bold mt-8">Seguí mirando fuera del radar.</p>
+            <p class="italic">— Editor VdA</p>
+          </div>
+          <div class="mt-8">
+            <Button href="/">Volver al inicio</Button>
+          </div>
+        </div>
+      </Card>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const formContainer = document.getElementById("form-container");
+  const successMessage = document.getElementById("success-message");
+  const submitBtn = document.getElementById("submit-btn");
+  const errorMessage = document.getElementById("error-message");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Reset error
+      if (errorMessage) {
+        errorMessage.classList.add("hidden");
+        errorMessage.textContent = "";
+      }
+
+      // Loading state
+      if (submitBtn) {
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = "Enviando...";
+        submitBtn.setAttribute("disabled", "true");
+        submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+      }
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(
+            result.error || "Ocurrió un error al enviar el formulario",
+          );
+        }
+
+        // Success state
+        if (formContainer) formContainer.classList.add("hidden");
+        if (successMessage) successMessage.classList.remove("hidden");
+        if (successMessage) successMessage.classList.add("flex");
+
+        // Confetti effect or scroll to top could be added here
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (error) {
+        console.error("Error:", error);
+        if (errorMessage) {
+          errorMessage.textContent =
+            error instanceof Error ? error.message : "Error desconocido";
+          errorMessage.classList.remove("hidden");
+        }
+
+        // Reset button
+        if (submitBtn) {
+          submitBtn.innerHTML = "Enviar Hallazgo";
+          submitBtn.removeAttribute("disabled");
+          submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+      }
+    });
+  }
+</script>
