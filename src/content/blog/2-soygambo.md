@@ -7,7 +7,6 @@ tags:
   - instagram
 imgUrl: "../../assets/soygambo.jpg"
 description: Con pocos años, ya hace sonar clásicos argentinos de los '70 en adelante. Apenas acompañada de su guitarra o teclado, logra transportarte en solo 40 segundos con una voz dulce y potente, capaz de resumir éxitos en lo que dura un TikTok.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 ## GAMBO & Los Freaks Modernos

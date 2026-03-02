@@ -7,7 +7,6 @@ tags:
   - Youtube
   - instagram
 imgUrl: "../../assets/luli.jpg"
-layout: ../../layouts/BlogPost.astro
 ---
 
 ## La viralidad de lo cotidiano

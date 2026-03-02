@@ -16,7 +16,6 @@ tags:
   - blog
 imgUrl: "../../assets/blog1.jpeg"
 description: "Individuos influenciados y controlados por decisiones automatizadas y algoritmos que afectan su comportamiento, decisiones y percepciones, sin ser plenamente conscientes de ello."
-layout: "../../layouts/BlogPost.astro"
 ---
 
 ## Tu "clic" te define.

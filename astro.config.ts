@@ -3,8 +3,11 @@ import sitemap from "@astrojs/sitemap";
 import UnoCSS from "unocss/astro";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
+import netlify from "@astrojs/netlify";
 
 export default defineConfig({
+  output: "hybrid",
+  adapter: netlify(),
   // used to generate images
   site:
     process.env.VERCEL_ENV === "production"

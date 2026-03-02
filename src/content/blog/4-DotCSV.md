@@ -8,12 +8,11 @@ tags:
   - Youtube
   - Ciencia
 imgUrl: "../../assets/csv.jpg"
-layout: ../../layouts/BlogPost.astro
 ---
 
 ## Dot CSV: El Intérprete Necesario en la Era de las Víctimas del Algoritmo
 
-La inteligencia artificial (IA) ha pasado de ser una promesa tecnológica a una fuerza omnipresente que moldea la información, el arte y la toma de decisiones críticas. En este contexto de cambio acelerado, donde la distinción entre lo real y lo sintético se difumina y los sesgos históricos se automatizan, la figura del divulgador experto se vuelve crucial. Carlos Santana Vega, conocido masivamente como Dot CSV, no es solo un popular *youtuber* con cerca de un millón de suscriptores; es el principal traductor que permite al público hispanohablante comprender los mecanismos internos que nos definen como potenciales "víctimas del algoritmo."
+La inteligencia artificial (IA) ha pasado de ser una promesa tecnológica a una fuerza omnipresente que moldea la información, el arte y la toma de decisiones críticas. En este contexto de cambio acelerado, donde la distinción entre lo real y lo sintético se difumina y los sesgos históricos se automatizan, la figura del divulgador experto se vuelve crucial. Carlos Santana Vega, conocido masivamente como Dot CSV, no es solo un popular _youtuber_ con cerca de un millón de suscriptores; es el principal traductor que permite al público hispanohablante comprender los mecanismos internos que nos definen como potenciales "víctimas del algoritmo."
 
 ## I. Dot CSV: El Intérprete Autorizado de la Revolución del Machine Learning
 
@@ -22,7 +21,6 @@ La autoridad de Carlos Santana reside en una combinación de rigor académico y 
 Su misión de divulgación se centra en "explicar los conceptos más complejos y avanzados de Machine Learning de manera amena y sencilla". Esta labor es fundamental, ya que el desconocimiento masivo de cómo operan estos sistemas lleva al denominado "sonambulismo tecnológico", un estado de dependencia pasiva. El trabajo de Dot CSV es una respuesta directa a esta brecha, proporcionando al ciudadano común las herramientas intelectuales necesarias para participar activamente en el debate y resistir la manipulación algorítmica.
 
 El crecimiento de su influencia refleja directamente la ansiedad y el interés público por la IA. El aumento de su base de seguidores, que pasó de 423.000 suscriptores en 2021 a superar los 900.000 en 2024, coincide cronológicamente con la explosión de herramientas de IA generativa como ChatGPT, DALL·E 2 y Stable Diffusion en 2022 y 2023 Dot CSV se ha consolidado como el experto de referencia para entender esta nueva ola:
-
 
 ## II. La Crisis de la Realidad: Desinformación y la Velocidad Exponencial de la IA
 
@@ -51,4 +49,3 @@ Carlos Santana Vega se erige como un nuevo tipo de intelectual público, utiliza
 Si quieres seguir aprendiendo junto a Dot CSV y descubrir más sobre su contenido, podes encontrarlo en:
 
 - **YouTube**: [Dot CSV](https://www.youtube.com/@DotCSV)
-

@@ -9,8 +9,17 @@ const { postSlug, title } = Astro.props;
 
 <div class="flex items-center gap-2 text-sm text-gray-600">
   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+    ></path>
   </svg>
   <span id={`view-count-${postSlug}`}>...</span>
   <span>lecturas</span>
@@ -21,49 +30,49 @@ const { postSlug, title } = Astro.props;
     try {
       const countElement = document.getElementById(`view-count-${postSlug}`);
       if (!countElement) return;
-      
+
       // Check if this user has already viewed this post (using sessionStorage for per-session tracking)
       const viewKey = `vda-viewed-${postSlug}`;
       const hasViewed = sessionStorage.getItem(viewKey);
-      
+
       if (!hasViewed) {
         // First time viewing in this session - increment counter on server
-        const incrementResponse = await fetch('/.netlify/functions/views', {
-          method: 'POST',
+        const incrementResponse = await fetch("/api/views", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({ slug: postSlug }),
         });
-        
+
         if (incrementResponse.ok) {
           const data = await incrementResponse.json();
           countElement.textContent = data.views;
-          
+
           // Add animation
-          countElement.style.transform = 'scale(1.1)';
-          countElement.style.color = '#10b981';
-          countElement.style.transition = 'all 0.3s ease';
-          
+          countElement.style.transform = "scale(1.1)";
+          countElement.style.color = "#10b981";
+          countElement.style.transition = "all 0.3s ease";
+
           setTimeout(() => {
-            countElement.style.transform = 'scale(1)';
-            countElement.style.color = '';
+            countElement.style.transform = "scale(1)";
+            countElement.style.color = "";
           }, 300);
-          
+
           // Mark as viewed in this session
-          sessionStorage.setItem(viewKey, 'true');
+          sessionStorage.setItem(viewKey, "true");
         } else {
-          throw new Error('Failed to increment view count');
+          throw new Error("Failed to increment view count");
         }
       } else {
         // User has viewed before in this session - just get current count
-        const getResponse = await fetch(`/.netlify/functions/views?slug=${postSlug}`);
-        
+        const getResponse = await fetch(`/api/views?slug=${postSlug}`);
+
         if (getResponse.ok) {
           const data = await getResponse.json();
           countElement.textContent = data.views;
         } else {
-          throw new Error('Failed to get view count');
+          throw new Error("Failed to get view count");
         }
       }
     } catch (error) {
@@ -72,18 +81,18 @@ const { postSlug, title } = Astro.props;
       if (countElement) {
         // Fallback to static JSON file if API fails
         try {
-          const response = await fetch('/data/views.json');
+          const response = await fetch("/data/views.json");
           const viewsData = await response.json();
           const postData = viewsData[postSlug];
-          countElement.textContent = postData ? postData.views : '0';
+          countElement.textContent = postData ? postData.views : "0";
         } catch (fallbackError) {
           // Silently fail and show 0
-          countElement.textContent = '0';
+          countElement.textContent = "0";
         }
       }
     }
   }
-  
+
   // Load view count when page loads
   loadViewCount();
 </script>
