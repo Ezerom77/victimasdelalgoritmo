@@ -65,5 +65,20 @@ const { title, description, ogImage } = Astro.props;
 
   <ClientRouter />
 
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Víctimas del Algoritmo",
+      "url": "https://victimasdelalgoritmo.com.ar",
+      "description": "Blog sobre el daño algorithmic en redes sociales y plataformas digitales.",
+      "sameAs": [
+        "https://www.youtube.com/@VictimasDelAlgoritmo",
+        "https://open.spotify.com/show/victimasdelalgoritmo",
+        "https://www.tiktok.com/@victimasdelalgoritmo"
+      ]
+    }
+  </script>
+
   <slot />
 </head>

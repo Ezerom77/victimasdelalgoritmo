@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /analytics-secret/
 Host: https://victimasdelalgoritmo.com.ar/
 Sitemap: https://victimasdelalgoritmo.com.ar/sitemap-index.xml
